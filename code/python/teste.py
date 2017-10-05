@@ -1,4 +1,4 @@
-mport numpy as np
+import numpy as np
 import cv2
 import glob
 
@@ -18,7 +18,7 @@ objp[:,:2] = np.mgrid[0:chessC1,0:chessC2].T.reshape(-1,2)
 objpoints = [] # 3d point in real world space
 imgpoints = [] # 2d points in image plane.
 
-images = glob.glob('/home/lluchiari/Documents/opencv/samples/data/left0*.jpg')
+images = glob.glob('/home/odroid/Documents/opencv-3.1.0/samples/data/left0*.jpg')
 
 for fname in images:
     img = cv2.imread(fname)
@@ -53,7 +53,7 @@ ret, mtx, dist, rvecs, tvecs = cv2.calibrateCamera(objpoints, imgpoints, gray.sh
 
 
 # Undistortion
-img = cv2.imread('/home/lluchiari/Documents/opencv/samples/data/left12.jpg')
+img = cv2.imread('/home/odroid/Documents/opencv-3.1.0/samples/data/left12.jpg')
 print("opa\n");
 h,  w = img.shape[:2]
 newcameramtx, roi=cv2.getOptimalNewCameraMatrix(mtx,dist,(w,h),1,(w,h))
